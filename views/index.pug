@@ -1,0 +1,20 @@
+extends layout
+
+block content
+    div(id="wind")
+      .container
+        .flex
+          .box
+            div
+              div.form-group
+                label(for="desiredWind") Wind:
+                input(name="desiredWind" v-model="desiredWind")
+              div.form-group
+                label(for="location") Location:
+                input(name="location" v-model="location")
+              button.button(v-on:click="chooseMe()") Click
+        .flex(v-if="theWeather")
+          .box
+            div(v-for="x in theWeather")
+              p {{ x.timezone }}
+
