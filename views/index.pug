@@ -16,5 +16,9 @@ block content
         .flex(v-if="theWeather")
           .box
             div(v-for="x in theWeather")
-              p {{ x.timezone }}
+              h2 Current Weather
+              p Direction:
+                i(:class="glyph") 
+              p Gust: {{ x.currently.windGust }}
+              p Speed: {{ x.currently.windSpeed }}
 
