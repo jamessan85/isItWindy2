@@ -54,3 +54,7 @@ td.fas {
 label {
   font-size: 1.5rem;
 }
+
+.arrow {
+ transform: rotate(45deg);
+}

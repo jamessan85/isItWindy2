@@ -18,29 +18,29 @@ new Vue({
   methods: {
     getBearingCurrent: function(bearing) {
       switch(true) {
-        case (bearing >= 347.5 && bearing <= 22.5):
-          this.glyph = '<i class="fas fa-arrow-left"></i>'
+        case (bearing >= 348 && bearing <= 22.5): //north
+          this.glyph = 'fas fa-arrow-left fa-3x arrow'
           break;
-        case (bearing >= 23 && bearing <= 67.5):
-          this.theWeather[0].currently.windBearing = "North East"
+        case (bearing >= 23 && bearing <= 67.5): // North East
+          this.glyph = "North East"
           break;
-        case (bearing >= 68 && bearing <= 112.5):
-          this.theWeather[0].currently.windBearing = '<i class="fas fa-arrow-left"></i>'
+        case (bearing >= 68 && bearing <= 112.5): // East
+          this.glyph = 'fas fa-arrow-left fa-3x arrow'
           break;
-        case (bearing >= 68 && bearing <= 112.5):
-          this.theWeather[0].currently.windBearing = '<i class="fas fa-arrow-left"></i>'
+        case (bearing >= 113 && bearing <= 157.5): // South East
+          this.glyph = 'fas fa-arrow-left fa-3x arrow'
           break;
-        case (bearing >= 113 && bearing <= 157.5):
-          this.glyph = 'fas fa-arrow-left fa-3x'
+        case (bearing >= 157 && bearing <= 202.5): // South
+          this.glyph = 'fas fa-arrow-left fa-3x arrow'
           break;
-        case (bearing >= 158 && bearing <= 202.5):
-          this.theWeather[0].currently.windBearing = "South"
+        case (bearing >= 203 && bearing <= 247.5):// South West
+          this.glyph = "South"
           break;
-        case (bearing >= 68 && bearing <= 112.5):
-          this.theWeather[0].currently.windBearing = '<i class="fas fa-arrow-left"></i>'
+        case (bearing >= 248 && bearing <= 302.5):// West
+          this.glyph = 'fas fa-arrow-left fa-3x arrow'
           break;
-        case (bearing >= 68 && bearing <= 112.5):
-          this.theWeather[0].currently.windBearing = '<i class="fas fa-arrow-left"></i>'
+        case (bearing >= 303 && bearing <= 347.5): //North West
+          this.glyph = 'fas fa-arrow-left fa-3x arrow'
           break;
         default:
           bearing = "Not Available"
