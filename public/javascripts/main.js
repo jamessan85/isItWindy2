@@ -5,15 +5,6 @@ new Vue({
     location: '',
     theWeather: [],
     glpyh: ''
-  },
-  async mounted() {
-    try {
-      var result = await axios.get('/weather')
-      this.theWeather.push(result.data);
-      this.getBearingCurrent(result.data.currently.windBearing)
-    } catch (error) {
-      console.log(error)
-    }
   }, 
   methods: {
     getBearingCurrent: function(bearing) {
@@ -45,6 +36,14 @@ new Vue({
         default:
           bearing = "Not Available"
           break;
+      }
+    },
+    getWeather: async function() {
+      try {
+        var result = await axios.get('/weather/' + this.location)
+        console.log(result);
+      } catch (error) {
+        console.log(error)
       }
     }
   },

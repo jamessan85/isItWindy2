@@ -12,7 +12,7 @@ block content
               div.form-group
                 label(for="location") Location:
                 input(name="location" v-model="location")
-              button.button(v-on:click="chooseMe()") Click
+              button.button(v-on:click="getWeather") Click
         .flex(v-if="theWeather")
           .box
             div(v-for="x in theWeather")
