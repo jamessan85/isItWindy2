@@ -19,6 +19,6 @@ block content
               h2 Current Weather
               p Direction:
                 i(:class="glyph") 
-              p Gust: {{ x.currently.windGust }}
-              p Speed: {{ x.currently.windSpeed }}
+              p Gust: {{ x.currently.windGust / 1.609 .toFixed() }}
+              p Speed: {{ x.currently.windSpeed / 1.609 .toFixed() }}
 

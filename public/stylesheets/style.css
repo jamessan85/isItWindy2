@@ -55,6 +55,30 @@ label {
   font-size: 1.5rem;
 }
 
-.arrow {
- transform: rotate(45deg);
+.fromSE {
+ transform: rotate(45deg); /*45deg*/
+}
+
+.fromN {
+  transform: rotate(-90deg)
+}
+
+.fromNE {
+  transform: rotate(-45deg)
+}
+
+.fromS {
+  transform: rotate(90deg)
+}
+
+.fromSW {
+  transform: rotate(-225deg)
+}
+
+.fromW {
+  transform: rotate(180deg);
+}
+
+.fromNW {
+  transform: rotate(225deg)
 }
