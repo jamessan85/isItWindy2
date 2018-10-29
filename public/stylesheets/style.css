@@ -5,9 +5,8 @@ body {
 a, u {
     text-decoration: none!important;
 }
-
-h2 {
-  border-bottom: 1px solid grey;
+.box:first {
+  border-bottom: 1px solid #3d84f7
 }
 
 input {
