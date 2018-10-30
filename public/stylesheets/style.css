@@ -5,6 +5,9 @@ body {
 a, u {
     text-decoration: none!important;
 }
+.box:first {
+  border-bottom: 1px solid #3d84f7
+}
 
 input {
   border-top: 0px;
@@ -42,7 +45,19 @@ td.fas {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 500px;
+  width: 100%;
+  padding: 10px;
+}
+
+.current {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.current p {
+  padding: 5px;
+  text-align: center;
 }
 
 .flex {
@@ -51,34 +66,24 @@ td.fas {
   align-items: center;
 }
 
+.flexcolumn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+
+.speed {
+  padding: 20px;
+}
+
 label {
   font-size: 1.5rem;
 }
 
-.fromSE {
- transform: rotate(45deg); /*45deg*/
-}
-
-.fromN {
-  transform: rotate(-90deg)
-}
-
-.fromNE {
-  transform: rotate(-45deg)
-}
-
-.fromS {
-  transform: rotate(90deg)
-}
-
-.fromSW {
-  transform: rotate(-225deg)
-}
-
-.fromW {
-  transform: rotate(180deg);
-}
-
-.fromNW {
-  transform: rotate(225deg)
+.hourly {
+  overflow: overlay;
+  display: flex;
+  flex-direction: row;
+  width: 90%;
 }

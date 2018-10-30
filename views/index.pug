@@ -2,24 +2,28 @@ extends layout
 
 block content
     div(id="wind")
-      .container
-        .flex
-          .box
-            div
-              div.form-group
-                label(for="desiredWind") Wind:
-                input(name="desiredWind" v-model="desiredWind")
-              div.form-group
-                label(for="location") Location:
-                input(name="location" v-model="location")
-              button.button(v-on:click="getWeather") Click
-        .flex(v-if="theWeather")
-          .box
-            div(v-for="x in theWeather")
-              h3 {{ message }}
-              h4 Current Weather
-              p Direction:
-                i(class="fas fa-arrow-left fa-3x") 
-              p Gust: {{ convertToMph(x.currently.windGust) }} mph
-              p Speed: {{ convertToMph(x.currently.windSpeed) }} mph
+      .flex
+        .box
+          div
+            div.form-group
+              label(for="desiredWind") Wind:
+              input(name="desiredWind" v-model="desiredWind")
+            div.form-group
+              label(for="location") Location:
+              input(name="location" v-model="location")
+            button.button(v-on:click="getWeather") Click
+      .flexcolumn(v-for="weather in theWeather")
+        .box
+            h2 Current Weather
+            .current
+              i(v-bind:class="transformClass", v-bind:style="transformStyle(weather.currently.windBearing)")  
+              p Gust: {{ weather.currently.windGust / 1.609 .toFixed(0) }}
+              p Speed: {{ weather.currently.windSpeed / 1.609 .toFixed(0) }}
+        .box
+          h2 72 Hour Weather
+          div(class="hourly")
+            div(v-for="hourly in weather.hourly.data" class="speed")
+              i(v-bind:class="transformClass", v-bind:style="transformStyle(hourly.windBearing)")  
+              p(v-bind:style="transformSpeed(hourly.windSpeed)") {{ hourly.windSpeed / 1.609 .toFixed(0) }} mph
+              p {{ showNiceTime(hourly.time) }}
 
