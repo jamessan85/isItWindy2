@@ -16,9 +16,10 @@ block content
         .flex(v-if="theWeather")
           .box
             div(v-for="x in theWeather")
-              h2 Current Weather
+              h3 {{ message }}
+              h4 Current Weather
               p Direction:
-                i(:class="glyph") 
-              p Gust: {{ x.currently.windGust / 1.609 .toFixed() }}
-              p Speed: {{ x.currently.windSpeed / 1.609 .toFixed() }}
+                i(class="fas fa-arrow-left fa-3x") 
+              p Gust: {{ convertToMph(x.currently.windGust) }} mph
+              p Speed: {{ convertToMph(x.currently.windSpeed) }} mph
 
