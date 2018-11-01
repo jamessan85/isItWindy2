@@ -12,16 +12,13 @@ new Vue({
       try {
         this.theWeather = [];
         var result = await axios.get('/weather/' + this.location)
-
-        this.theWeather.push(result.data);
-
-        if ( parseInt(this.desiredWind) >= this.convertToMph(this.theWeather[0].currently.windSpeed) ) {
-          this.message = "You can go out"
-        } else {
-          this.message = "In the garage"
+        var hourly = result.data.hourly.data
+        for (var i = 0; i < hourly.length; i++) {
+          var speedMph = this.convertToMph(hourly[i].windSpeed)
+          if (parseInt(speedMph) < parseInt(this.desiredWind)) {
+            this.theWeather.push(hourly[i]);
+          }
         }
-
-        this.getBearingCurrent(this.theWeather[0].currently.windBearing)
       } catch (error) {
         console.log(error)
       }
@@ -36,7 +33,7 @@ new Vue({
       }
     },
     transformSpeed: function(windSpeed) {
-      if (windSpeed > this.desiredWind) {
+      if (parseInt(windSpeed) > parseInt(this.desiredWind)) {
         return {
           color: "red",
           'font-weight': "bold"

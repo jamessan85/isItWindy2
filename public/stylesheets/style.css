@@ -73,9 +73,34 @@ td.fas {
   flex-flow: column;
 }
 
+
+input[type="radio"] {
+  background-color: red;
+  border: 1px solid black;
+  border-radius: 50%;
+  color: red;
+}
+
+input[type="radio"]:checked + label {
+  background-color: #400080;
+}
+
 .speed {
   padding: 20px;
 }
+
+.speed p {
+  padding: 5px 0px;
+  width: 80px;
+}
+
+/* .arrow-box {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  height: 100px;
+  width: 80px;
+} */
 
 label {
   font-size: 1.5rem;

@@ -6,7 +6,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var axios = require('axios');
 
 router.get('/', function(req, res, next) {
-  res.render('index')
+  res.render('vue')
 })
 
 router.get('/weather/:location', async function(req, res, next) {
