@@ -11,19 +11,16 @@ block content
             div.form-group
               label(for="location") Location:
               input(name="location" v-model="location")
+            div.form-group
+              label(for="timeOfDay") Return time from 8am - 8pm:
+              input(type="checkbox" name="timeOfDay" v-model="timeOfDay")
             button.button(v-on:click="getWeather") Click
-      .flexcolumn(v-for="weather in theWeather")
-        .box
-            h2 Current Weather
-            .current
-              i(v-bind:class="transformClass", v-bind:style="transformStyle(weather.currently.windBearing)")  
-              p Gust: {{ weather.currently.windGust / 1.609 .toFixed(0) }}
-              p Speed: {{ weather.currently.windSpeed / 1.609 .toFixed(0) }}
+      .flexcolumn(v-show="show")
         .box
           h2 72 Hour Weather
           div(class="hourly")
-            div(v-for="hourly in weather.hourly.data" class="speed")
-              i(v-bind:class="transformClass", v-bind:style="transformStyle(hourly.windBearing)")  
-              p(v-bind:style="transformSpeed(hourly.windSpeed)") {{ hourly.windSpeed / 1.609 .toFixed(0) }} mph
+            div(v-for="hourly in theWeather" class="speed" v-bind:style="groupDays(showNiceTime(hourly.time))")
+              i(v-bind:class="transformClass", v-bind:style="transformStyle(hourly.windBearing,convertToMph(hourly.windSpeed))")  
+              p {{ convertToMph(hourly.windSpeed) }} mph
               p {{ showNiceTime(hourly.time) }}
 
