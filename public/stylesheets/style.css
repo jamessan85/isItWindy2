@@ -49,6 +49,10 @@ td.fas {
   padding: 10px;
 }
 
+.color {
+  color: transparent
+}
+
 .current {
   display: flex;
   flex-direction: row;

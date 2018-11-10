@@ -43,7 +43,7 @@ new Vue({
     transformStyle: function(bearing, speed) {
       return {
         transform: `rotate(${bearing - 180}deg)`,
-        color: `rgb(37, ${speed}, 150 )`
+        color: "black"
       }
     },
     transformSpeed: function(windSpeed) {

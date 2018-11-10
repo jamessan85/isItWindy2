@@ -12,7 +12,7 @@ block content
               label(for="location") Location:
               input(name="location" v-model="location")
             div.form-group
-              label(for="timeOfDay") Return time from 8am - 8pm:
+              label(for="timeOfDay") Only show weather between 8am - 8pm:
               input(type="checkbox" name="timeOfDay" v-model="timeOfDay")
             button.button(v-on:click="getWeather") Click
       .flexcolumn(v-show="show")
