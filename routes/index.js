@@ -11,8 +11,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/weather/:location', async function(req, res, next) {
   const location = req.params.location
-  const getLongLat = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=AIzaSyCLvBVVmItQHsdq4Uin6XH4w0z8oGmarkQ`)
-
+  const getLongLat = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=AIzaSyAJ2FPx5aUjrKec-Oisgp8HFjtlwz2_GCg`)
   const latitude = getLongLat.data.results[0].geometry.location.lat;
   const longitude = getLongLat.data.results[0].geometry.location.lng;
 
